@@ -14,18 +14,20 @@ def compare_words(words):
                 print(f"Слова '{word1}' и '{word2}' одинаковы.")
             else:
                 print(f"Слова '{word1}' и '{word2}' различны.")
-            common_chars = compare_characters(word1, word2)
+            common_chars, common_count = compare_characters(word1, word2)
             if common_chars:
                 print(f"Слова '{word1}' и '{word2}' имеют одинаковые символы на тех же местах: {common_chars}")
+                print(f"Количество одинаковых символов на тех же местах: {common_count}")
 
 def compare_characters(word1, word2):
-    """Сравнивает символы двух слов и возвращает список одинаковых символов на тех же местах."""
+    """Сравнивает символы двух слов и возвращает список одинаковых символов на тех же местах и их количество."""
     common_chars = []
     min_length = min(len(word1), len(word2))
     for k in range(min_length):
         if word1[k] == word2[k]:
             common_chars.append((k, word1[k]))
-    return common_chars
+    common_count = len(common_chars)
+    return common_chars, common_count
 
 def main():
     file_path = 'words.txt'
