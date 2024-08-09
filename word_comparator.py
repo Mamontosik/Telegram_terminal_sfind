@@ -1,9 +1,3 @@
-def read_words(file_path):
-    """Читает слова из файла и возвращает их в виде списка."""
-    with open(file_path, 'r', encoding='utf-8') as file:
-        words = file.read().splitlines()
-    return words
-
 def compare_words(words):
     """Сравнивает слова между собой и выводит результаты сравнения."""
     match_counts = [0] * len(words)  # Список для подсчета совпадений для каждого слова
@@ -38,11 +32,3 @@ def compare_characters(word1, word2):
             common_chars.append((k, word1[k]))
     common_count = len(common_chars)
     return common_chars, common_count
-
-def main():
-    file_path = 'words.txt'
-    words = read_words(file_path)
-    compare_words(words)
-
-if __name__ == "__main__":
-    main()
